@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta charset="UTF-8"/>
+    <title>Insured Person</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style>
+        body{
+            background:transparent;
+            background-image:none;
+            border-color:transparent;
+            box-shadow:none;
+        }
+
+        .card-container.card {
+            max-width: 350px;
+            padding: 0px 40px;
+        }
+
+        .card {
+            background-color: white;
+            /* just in case there no content*/
+            padding: 20px 25px 30px;
+            margin: 0 auto 25px;
+            margin-top: 0px;
+            /* shadows and rounded borders */
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            -moz-box-shadow: 0px 20px 20px rgba(0, 0, 0, 1);
+            -webkit-box-shadow: 0px 20px 20px rgba(0, 0, 0,1);
+            box-shadow: 0px 20px 20px rgba(0, 0, 0, 1);
+        }
+
+        .profile-name-card {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0 0;
+            min-height: 1em;
+        }
+
+        .btn.btn-signin:hover,
+        .btn.btn-signin:active,
+        .btn.btn-signin:focus {
+            background-color: rgb(255, 153, 0);
+            border-color: rgb(255, 153, 0);
+        }
+
+    </style>
+</head>
+<body>
+<!--<p th:text="${#authentication.getName()}"></p>-->
+
+<!-- <h2><a href="vehicleForm.html" th:href="@{http://localhost:8080/vForm(user=${#authentication.getName()})}">Regiter New Vehicle </a></h2> -->
+
+
+<!-- <p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p> -->
+
+<script>
+    /*var x = document.getElementById("demo");
+
+     function getLocation() {
+     if (navigator.geolocation) {
+     navigator.geolocation.getCurrentPosition(showPosition, showError);
+     } else {
+     x.innerHTML = "Geolocation is not supported by this browser.";
+     }
+     }
+
+     function showPosition(position) {
+     x.innerHTML = "Latitude: " + position.coords.latitude +
+     " Longitude: " + position.coords.longitude;
+     document.getElementById("lat").value = position.coords.latitude;
+     document.getElementById("lng").value = position.coords.longitude;
+     }
+
+     function showError(error) {
+     switch(error.code) {
+     case error.PERMISSION_DENIED:
+     x.innerHTML = "User denied the request for Geolocation."
+     break;
+     case error.POSITION_UNAVAILABLE:
+     x.innerHTML = "Location information is unavailable."
+     break;
+     case error.TIMEOUT:
+     x.innerHTML = "The request to get user location timed out."
+     break;
+     case error.UNKNOWN_ERROR:
+     x.innerHTML = "An unknown error occurred."
+     break;
+     }
+     }*/
+</script>
+<div class="container">
+    <div class="card card-container">
+
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="card card-container">
+        <br/>
+        <h2 style="color:gray;">Report Accident</h2>
+        <form class="form-signin" method="POST" enctype="multipart/form-data" th:action="@{/reportWEB}">
+            <input type="text" class="form-control"   placeholder="License Plate No" name="license" minlength="5" /><br/>
+
+            <input type="hidden" class="form-control"  th:value="6.797180" id="lat" placeholder="Latitude" name="latitude" />
+
+            <input type="hidden" class="form-control" th:value="79.902038" id="lng" placeholder="Longitude" name="longitude" />
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Report</button>
+            <br/>
+        </form>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="card card-container"><br/>
+    <button class="btn btn-lg btn-primary btn-block btn-signin">   <a style="color:white;" href="vehicleForm.html" th:href="@{/vForm(user=${#authentication.getName()})}">Register New Vehicle </a><br/>
+    </button>
+
+    <button class="btn btn-lg btn-primary btn-block btn-signin">   <a style="color:white;" href="garageListweb.html" th:href="@{/getGarageWEB(lat='6.797180',longt='79.902038')}">Get Garages</a><br/>
+    </button><br/>
+    </div>
+</div>
+
+
+<!--<button type="button" onclick="loadDoc()">No to claim</button>
+
+<p id="demo"></p>
+
+<script>
+    /* <![CDATA[ */
+
+    function loadDoc() {
+        document.getElementById("demo").innerHTML=localStorage.getItem(accid);
+        var num ="/claimAccept/"+accId+"/No";
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+
+               /* var obj = JSON.parse(this.responseText);
+                var str=obj.latitude;*/
+                document.getElementById("demo").innerHTML = this.responseText;
+
+            }
+        };
+        xhttp.open("GET",num, true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.send();
+    }
+    /* ]]> */
+</script> -->
+
+
+
+</body>
+</html>

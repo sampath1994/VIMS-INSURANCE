@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>Search Result</title>
+
+    <style type="text/css">
+
+        a:hover{
+            color: white;
+        }
+        a{
+            color: brown;
+        }
+
+
+    </style>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 5px solid gold;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Users matched Details</h2>
+<table>
+    <tr>
+        <th>Garage Id</th>
+        <th>Owner</th>
+        <th>telephone</th>
+        <th>address</th>
+        <th>distance</th>
+    </tr>
+
+    <tr th:each="gar : ${glist}">
+        <td ><a href="map.html" th:href="@{/getPath(lat=${gar.latitude},longt=${gar.longtitude})}" th:text="${gar.garageId} + Garage"> </a> </td>
+        <td th:text="${gar.garageOwner}"></td>
+        <td th:text="${gar.telephone}"></td>
+        <td th:text="${gar.address}"></td>
+        <td th:text="${gar.distance}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

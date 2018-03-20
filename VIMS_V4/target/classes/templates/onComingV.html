@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="refresh" content="5"/>
+    <title>We Care Your Vehicle</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style type="text/css">
+
+        body {
+            background-color: transparent;
+        }
+
+        a:hover{
+            color: black;
+        }
+        a{
+            color: greenyellow;
+        }
+
+    </style>
+
+    <style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<table id="customers" align="center">
+    <tr width="50%">
+        <th> On Coming Vehicles </th>
+    </tr>
+    <tr width="50%" th:each="vList : ${gaHisList}">
+        <td ><a href="AccidentDetails.html" th:href="@{/seeVehicle(id=${vList.vehicle.vehicleId})}" th:text="${vList.vehicle.vehicleId} +' Vehicle '+ ${vList.vehicle.licencePlate}"> </a>  </td>
+    </tr>
+</table>
+
+</body>
+
+</html>

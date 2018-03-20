@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<head>
+
+    <meta charset="utf-8"/>
+    <title>Unpaid Accidents</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style type="text/css">
+        body{
+           /* background: gray url('images/pic1.jpg') no-repeat fixed;
+            background-size:cover*/
+            background:linear-gradient(white,orange) no-repeat fixed;
+        }
+        a:hover{
+            color: white;
+        }
+        a{
+            color: brown;
+        }
+
+    </style>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+            margin: auto;
+        }
+
+        td, th {
+            border: 5px solid gold;
+            text-align: center;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightgreen;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h2>Unpaid Accident List</h2>
+
+<table width="100%">
+    <tr >
+        <th>Accident ID</th>
+        <th>Date and Time</th>
+    </tr>
+    <tr  th:each="accident : ${accidents}">
+        <td ><a href="AccidentDetails.html" th:href="@{http://localhost:8080/load(id=${accident.accidentId})}" th:text="${accident.accidentId} + ' Accident '"> </a>  </td>
+        <td th:text="${accident.datetime}"></td>
+    </tr>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>Make a User Search</title>
+
+    <style>
+
+        body{
+           /* background: gray url('images/pic3.jpg') no-repeat fixed;
+            background-size:cover*/
+            background:linear-gradient(white,orange) no-repeat fixed;
+        }
+
+        input[type=text], select {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            position: relative;
+
+        }
+
+        input[type=submit] {
+            width: 25%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 10px 150px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+
+        }
+
+        input[type=reset] {
+            width: 25%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 10px 150px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+
+        }
+
+     /*   p {
+
+            padding: 14px 20px;
+            margin: 10px 150px;
+            position: relative;
+            left:260px;
+            top:70px;
+            color: white;
+        }*/
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        input[type=reset]:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            color: black;
+            text-align: center;
+        }
+        h3{
+            color: lime;
+            margin-left: 160px;
+        }
+
+    </style>
+</head>
+<body>
+<div  align="center">
+<h2>Account Enable</h2>
+<form method="POST"  th:action="@{/enableAcc}">
+
+    <input type="text"    placeholder="User ID" name="id" /> <br/>
+
+    <input type="text"    placeholder="UserName" name="name" /> <br/>
+   <p>
+    <input type="radio"  class="w3-radio"  value="1" name="enable" checked="checked"/>Enable Account<br/>
+
+       <input type="radio" class="w3-radio"  value="0" name="enable" />Disable Account<br/> </p>
+    <input  type="submit" value="Change setting"/>
+    <input type="reset" th:value="Reset"/>
+</form>
+</div>
+</body>
+</html>

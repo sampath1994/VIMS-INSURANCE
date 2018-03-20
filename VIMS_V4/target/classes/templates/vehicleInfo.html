@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vehicle Info</title>
+
+    <style type="text/css">
+        p{
+            color: greenyellow;
+        }
+
+        h2{
+            color: gold;
+        }
+        </style>
+
+    <style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+
+
+        #customers tr{background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+
+    <style>
+        a:link, a:visited {
+            background-color: #ffa11e;
+            color: white;
+            padding: 10px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+
+        a:hover, a:active {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<!--<h2>vehicle information</h2>
+<p th:text="'licencePlate : '+${vehicle.licencePlate}"></p>
+<p th:text="'vehicleId : '+${vehicle.vehicleId}"></p>
+<p th:text="'engineNo : '+${vehicle.engineNo}"></p>
+<p th:text="'vehicleType : '+${vehicle.vehicleType}"></p>-->
+<div align="center">
+<h2>Vehicle Information</h2>
+<table id="customers">
+    <tr>
+        <th>License Plate no</th>
+        <th>Vehicle ID</th>
+        <th>Engine No</th>
+        <th>Vehicle Type</th>
+        <th>Registered Area</th>
+
+    </tr>
+
+    <tr>
+        <td th:text="${vehicle.licencePlate}"></td>
+        <td th:text="${vehicle.vehicleId}"></td>
+        <td th:text="${vehicle.engineNo}"></td>
+        <td th:text="${vehicle.vehicleType}"></td>
+        <td th:text="${vehicle.registeredArea}"></td>
+    </tr>
+</table>
+
+
+    <h2>Owners Details</h2>
+    <table id="customers">
+        <tr>
+            <th>Name</th>
+            <th>Telephone</th>
+            <th>NIC</th>
+            <th>Date of Birth</th>
+            <th>Address</th>
+        </tr>
+
+        <tr>
+            <td th:text="${usr.name}"></td>
+            <td th:text="${usr.telephone}"></td>
+            <td th:text="${usr.nationalIdNo}"></td>
+            <td th:text="${usr.dateOfBirth}"></td>
+            <td th:text="${usr.address}"></td>
+        </tr>
+    </table>
+
+<h2>Confirm Seen</h2>
+<a href="confirmSuccess.html" th:href="@{/doneCheck(user=${#authentication.getName()},vid=${vehicle.vehicleId})}" th:text="confirm "> </a>
+</div>
+</body>
+</html>

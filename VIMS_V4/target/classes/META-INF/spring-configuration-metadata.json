@@ -1,0 +1,19 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.vims_v3.storage.StorageProperties",
+      "name": "storage",
+      "type": "com.vims_v3.storage.StorageProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.vims_v3.storage.StorageProperties",
+      "defaultValue": "G:\\Final project backup 25-01-17\\VIMS_V4\\src\\main\\resources\\static\\pics",
+      "name": "storage.location",
+      "description": "Folder location for storing files",
+      "type": "java.lang.String"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Search Result</title>
+
+    <style type="text/css">
+        body{
+            background: gray url('images/pic1.jpg') no-repeat fixed;
+        }
+        a:hover{
+            color: white;
+        }
+        a{
+            color: brown;
+        }
+
+
+    </style>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 5px solid gold;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Users matched Details</h2>
+<table>
+    <tr>
+        <th>UserName</th>
+        <th>Telephone</th>
+        <th>NIC</th>
+        <th>Date of Birth</th>
+        <th>Address</th>
+    </tr>
+
+    <tr th:each="ownerinfo : ${ulist}">
+        <td th:text="${ownerinfo.name}"></td>
+        <td th:text="${ownerinfo.telephone}"></td>
+        <td th:text="${ownerinfo.nationalIdNo}"></td>
+        <td th:text="${ownerinfo.dateOfBirth}"></td>
+        <td th:text="${ownerinfo.address}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

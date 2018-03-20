@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Search User</title>
+
+    <style>
+
+        body{
+          /*  background: gray url('images/pic2.jpeg') no-repeat fixed;*/
+            background:linear-gradient(white,orange) no-repeat fixed;
+        }
+
+        input[type=text], select {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            position: relative;
+
+        }
+
+        input[type=submit] {
+            width: 25%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 10px 150px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+
+        }
+
+        input[type=reset] {
+            width: 25%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 10px 150px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            color: black;
+            text-align: center;
+        }
+        h3{
+            color: lime;
+            margin-left: 160px;
+        }
+
+    </style>
+
+    <style>
+        select#soflow, select#soflow-color {
+            -webkit-appearance: button;
+            -webkit-border-radius: 2px;
+            -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+            -webkit-padding-end: 20px;
+            -webkit-padding-start: 2px;
+            -webkit-user-select: none;
+            background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+            background-position: 97% center;
+            background-repeat: no-repeat;
+            border: 1px solid #AAA;
+            color: #555;
+            font-size: inherit;
+            margin: 20px;
+            overflow: hidden;
+            padding: 5px 10px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 300px;
+
+        }
+
+    </style>
+</head>
+<body>
+<div  align="center">
+<h2>Search Users</h2>
+<form method="POST"  th:action="@{/searchAdmin}">
+
+    <input type="text"    placeholder="User ID" name="id" /> <br/>
+
+    <input type="text"    placeholder="UserName" name="name" /> <br/>
+
+    <input type="text"    placeholder="First Name of User" name="firstname" /> <br/>
+
+    <input type="text"    placeholder="Last Name of User" name="lastname" /> <br/>
+
+    <select name="role" id="soflow">
+        <option value="">Find by Role</option>
+        <option value="ROLE_ADMIN">Admin</option>
+        <option value="ROLE_USER">Insured Person</option>
+        <option value="ROLE_ADJUSTER">Adjuster</option>
+        <option value="ROLE_MANAGER">Manager</option>
+        <option value="ROLE_GARAGE">Garage</option>
+        <option value="ROLE_DRIVER">Emergency Driver</option>
+    </select> <br/><br/>
+    <input  type="submit" value="Search"/>
+    <input type="reset" value="Reset"/>
+</form>
+</div>
+</body>
+</html>

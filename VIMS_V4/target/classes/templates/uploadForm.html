@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<head>
+	<title>We Care Your Vehicle</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		body{
+			background:transparent;
+			background-image:none;
+			border-color:transparent;
+			box-shadow:none;
+		}
+
+		.card-container.card {
+			max-width: 350px;
+			padding: 0px 40px;
+		}
+
+		.card {
+			background-color: white;
+			/* just in case there no content*/
+			padding: 20px 25px 30px;
+			margin: 0 auto 25px;
+			margin-top: 0px;
+			/* shadows and rounded borders */
+			-moz-border-radius: 2px;
+			-webkit-border-radius: 2px;
+			border-radius: 2px;
+			-moz-box-shadow: 0px 20px 20px rgba(0, 0, 0, 1);
+			-webkit-box-shadow: 0px 20px 20px rgba(0, 0, 0,1);
+			box-shadow: 0px 20px 20px rgba(0, 0, 0, 1);
+		}
+
+		.profile-name-card {
+			font-size: 16px;
+			font-weight: bold;
+			text-align: center;
+			margin: 10px 0 0;
+			min-height: 1em;
+		}
+
+		.btn.btn-signin:hover,
+		.btn.btn-signin:active,
+		.btn.btn-signin:focus {
+			background-color: rgb(255, 153, 0);
+			border-color: rgb(255, 153, 0);
+		}
+
+	</style>
+
+
+</head>
+<body>
+
+<!--<script th:inline="javascript">
+    localStorage.setItem("accid",[[${accident}]]);
+</script> -->
+
+
+<div th:if="${message}">
+	<h2 th:text="${message}"/>
+</div>
+
+<div class="container">
+	<div class="card card-container">
+		<br/>
+
+		<h2 style="color:gray;">Send Images</h2>
+		<p>0718858454 </p>
+		<p id="profile-name" class="profile-name-card"></p>
+		<form class="form-signin" method="POST" enctype="multipart/form-data" th:action="@{/reportPost}">
+			<div id="accidentform">
+
+					<div>
+						<p class="selectImage">Choose Front Side View Image</p>
+						<input type="file" name="file" />
+					</div>
+					<br/>
+					<div>
+						<p class="selectImage">Choose Left Side View Image</p>
+						<input type="file" name="file2" />
+					</div>
+					<br/>
+					<div>
+						<p class="selectImage">Choose Right Side View Image</p>
+						<input type="file" name="file3" />
+					</div>
+					<br/>
+
+					<div>
+						<input type="hidden" name="AccNo" th:value="${accident}"/>
+					</div>
+					<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit"  value="Upload">Send</button><br/>
+
+
+
+			</div>
+	</form>
+	</div>
+</div>
+
+
+<div>
+	<ul>
+		<li th:each="file : ${files}">
+			<a th:href="${file}" th:text="${file}" />
+		</li>
+	</ul>
+</div>
+
+</body>
+</html>

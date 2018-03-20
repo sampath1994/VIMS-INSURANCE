@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<head>
+
+    <meta charset="utf-8"/>
+
+    <title>We Care Your Vehicle</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            line-height: 1.4;
+            font-family: 'Roboto', sans-serif;
+            color: #67696c;
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            overflow-x: hidden;
+        }
+
+        .header{
+            background: url('images/pic7.jpg') no-repeat fixed;
+            background-size: cover;
+            min-height: 650px;
+            position: relative;
+        }
+        .bg-color{
+            background-color: rgba(0, 0, 0, 0.5);
+            min-height: 650px;
+        }
+
+        .navbar-default{
+            background:transparent;
+            background-image:none;
+            border-color:transparent;
+            box-shadow:none;
+            padding: 20px 0;
+
+        }
+
+
+
+
+    </style>
+
+    <style>
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+        }
+
+
+        .container .btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            background-color: #ba9e6f;
+            color: black;
+            font-size: 22px;
+            padding: 40px 80px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .container .btn:hover {
+            background-color: black;
+            color: white;
+        }
+
+        .relative2 {
+            position: relative;
+            top: 300px;
+            left: -120px;
+
+        }
+
+        .relative1 {
+            position: relative;
+            top: 20px;
+            left: -300px;
+
+        }
+
+        .relative3 {
+            position: relative;
+            top: 300px;
+            left: 160px;
+
+        }
+        h1{
+            text-align: center;
+            color: floralwhite;
+        }
+        h2{
+            text-align: center;
+            color: floralwhite;
+        }
+    </style>
+</head>
+
+
+<body>
+<div>
+    <div class="header">
+        <div class="bg-color">
+            <header id="main-header">
+                <nav class="navbar navbar-default">
+
+                    <div class="container">
+                        <div  class="relative1">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a href="#"><img th:src="@{/images/Logo.png}" height="80px" width="200px"/></a>
+                        </div>
+                        <h1>Web Administrator</h1>
+                        <h2>Access Portal</h2>
+
+
+                        <div  class="relative2">
+                            <a href="/adminForm" > <button class="btn">Register</button></a>
+                        </div>
+
+                        <div  class="relative3">
+                            <a href="/admin2" >  <button class="btn" >Sign in</button></a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <iframe width="100%" height="1080px" src="" name="iframe_01" style="border-width:0px ">
+                <p>Your browser does not support iframes.</p>
+            </iframe>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

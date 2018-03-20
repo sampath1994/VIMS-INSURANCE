@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Insured Person</title>
+</head>
+<body>
+<p th:text="${#authentication.getName()}"></p>
+
+<h2><a href="vehicleForm.html" th:href="@{http://localhost:8080/vForm(user=${#authentication.getName()})}">Regiter New Vehicle </a></h2>
+
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<!--<script>
+    var x = document.getElementById("demo");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+            " Longitude: " + position.coords.longitude;
+        document.getElementById("lat").value = position.coords.latitude;
+        document.getElementById("lng").value = position.coords.longitude;
+    }
+
+    function showError(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                x.innerHTML = "User denied the request for Geolocation."
+                break;
+            case error.POSITION_UNAVAILABLE:
+                x.innerHTML = "Location information is unavailable."
+                break;
+            case error.TIMEOUT:
+                x.innerHTML = "The request to get user location timed out."
+                break;
+            case error.UNKNOWN_ERROR:
+                x.innerHTML = "An unknown error occurred."
+                break;
+        }
+    }
+</script> -->
+<form method="POST" enctype="multipart/form-data" th:action="@{/reportWEB}">
+    <input type="text"    placeholder="License Plate No" name="license"/><br/>
+
+    <input type="text"  th:value="6.797180" id="lat" placeholder="Latitude" name="latitude" /> <br/>
+
+    <input type="text"  th:value="79.902038" id="lng" placeholder="Longitude" name="longitude" /> <br/>
+    <button  type="submit">Report</button>
+</form>
+</body>
+</html>

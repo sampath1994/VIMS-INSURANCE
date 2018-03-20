@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<head>
+    <title>Insured Person Registration</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background:transparent;
+            background-image:none;
+            border-color:transparent;
+            box-shadow:none;
+        }
+        .card-container.card {
+            max-width: 350px;
+            padding: 0px 40px;
+        }
+
+        .card {
+            background-color: white;
+            /* just in case there no content*/
+            padding: 20px 25px 30px;
+            margin: 0 auto 25px;
+            margin-top: 0px;
+            /* shadows and rounded borders */
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            -moz-box-shadow: 0px 20px 20px rgba(0, 0, 0, 1);
+            -webkit-box-shadow: 0px 20px 20px rgba(0, 0, 0,1);
+            box-shadow: 0px 20px 20px rgba(0, 0, 0, 1);
+        }
+
+        .profile-name-card {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0 0;
+            min-height: 1em;
+        }
+
+        .btn.btn-signin:hover,
+        .btn.btn-signin:active,
+        .btn.btn-signin:focus {
+            background-color: rgb(255, 153, 0);
+            border-color: rgb(255, 153, 0);
+        }
+
+
+
+    </style>
+</head>
+<body>
+<!--container=====================================================================-->
+<div class="container">
+    <div class="card card-container">
+        <br/>
+        <h2 style="color:grey;">Insurance Adjuster <br/>Sign up</h2>
+
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="form-signin" th:action="@{/IARegform}"   method="post">
+            <span id="reauth-email" class="reauth-email"></span>
+
+            <input type="text" class="form-control" name="name" placeholder="Username" th:value="${user.name}" th:required="required"/><br/>
+            <input type="password"  class="form-control" name="userPassword" placeholder="Password" th:value="${user.userPassword}" th:required="required"/><br/>
+            <input type="text" class="form-control" name="firstname" placeholder="First name" th:value="${user.firstname}" th:required="required"/><br/>
+            <input type="text" class="form-control" name="lastname" placeholder="Last name" th:value="${user.lastname}" th:required="required"/><br/>
+            <input type="text" class="form-control"  placeholder="NIC Number" name="nationalIdNo" th:field="${user.nationalIdNo}" th:required="required"/><br/>
+            <input type="text" class="form-control"  placeholder="Address" name="address" th:field="${user.address}" th:required="required"/><br/>
+            <input type="text" class="form-control"  placeholder="Telephone Number" name="telephone" th:field="${user.telephone}" th:required="required" maxlength="10" minlength="10" /><br/>
+            <input type="date" class="form-control"   name="dateOfBirth" th:field="${user.dateOfBirth}"/><br/>
+            <input type="text" class="form-control"  placeholder="company registration no." name="adjusterId" th:field="${adjuster.adjusterId}" th:required="required"/><br/>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button><br/>
+        </form>
+    </div>
+</div>
+<!-- /container===================================================================-->
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="refresh" content="5"/>
+    <title>We Care Your Vehicle</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style type="text/css">
+        body{
+            background: gray url('images/pic1.jpg') no-repeat fixed;
+            background-size:cover
+        }
+        a:hover{
+            color: white;
+        }
+        a{
+            color: brown;
+        }
+
+    </style>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        a:link, a:visited {
+            background-color: #f44336;
+            color: white;
+            padding: 14px 50px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+
+        a:hover, a:active {
+            background-color: red;
+        }
+
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>On Going Accident List</h2>
+<table width="100%">
+    <tr >
+        <th>  Accident ID </th>
+        <th>Date Time</th>
+    </tr>
+    <tr  th:each="accident : ${accidents}">
+        <td ><a href="AccidentDetails.html" th:href="@{/load2(id=${accident.accidentId},user=${#authentication.getName()})}" th:text="'Accident Id: '+${accident.accidentId}"> </a>  </td>
+        <td  th:text="${accident.datetime}"></td>
+    </tr>
+</table>
+
+</body>
+
+</html>

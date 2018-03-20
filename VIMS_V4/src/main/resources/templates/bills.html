@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<head>
+
+    <meta charset="utf-8"/>
+    <title>Bill information</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style type="text/css">
+        body{
+            background: gray url('images/pic1.jpg') no-repeat fixed;
+        }
+        a:hover{
+            color: white;
+        }
+        a{
+            color: brown;
+        }
+
+    </style>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 5px solid gold;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+<h2 th:text="'Accident: '+${payment.AccidentId}+' Garage Inspection Records'"></h2>
+
+<table width="100%">
+    <tr width="50%">
+        <th> Report Id </th>
+        <th>Total estimation</th>
+        <th>Garage id</th>
+        <!--<th>emergency vehicle</th>-->
+        <th>SpareParts cost</th>
+        <th>Labour cost</th>
+        <th>Comments</th>
+    </tr>
+    <tr width="50%" th:each="payment : ${payments}">
+        <td th:text="${payment.billId}" > </td>
+        <td th:text="${payment.paymentamount}"></td>
+        <!--td><a href="garageInfo.html" th:href="@{http://localhost:8080/Garage(id=${payment.garageId.garageId})}" th:text="${payment.garageId.garageId}"> </a> </td-->
+        <!--td><a href="garageInfo.html" th:href="@{http://localhost:8080/Garage(id=${payment.garageId}?${payment.garageId.garageId}:1)}" th:text="${payment.garageId}?${payment.garageId.garageId}:'NA'"> </a> </td-->
+        <td><a href="garageInfo.html" th:href="@{http://localhost:8080/Garage(id=${payment.garageId.garageId})}" th:if="${payment.garageId}" th:text="${payment.garageId}?${payment.garageId.garageId}:'NA'"> </a> </td>
+
+        <!--td th:text="${payment.garageId}?${payment.garageId.garageId}:'NA'" > </td-->
+        <!--<td th:text="${payment.emergencyvId}?${payment.emergencyvId.id}:'NA'" > </td> -->
+        <td th:text="${payment.partcost}" > </td>
+        <td th:text="${payment.labour}" > </td>
+        <td th:text="${payment.comment}" > </td>
+    </tr>
+</table>
+
+</body>
+
+</html>

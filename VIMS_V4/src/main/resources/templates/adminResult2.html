@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Search Result</title>
+
+    <style type="text/css">
+        body{
+            background: gray url('images/pic7.jpg') no-repeat fixed;
+            background-size:cover
+        }
+        a:hover{
+            color: white;
+        }
+        a{
+            color: brown;
+        }
+
+
+    </style>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 5px solid gold;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightgreen;
+        }
+
+        h2{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<h2>Search Results</h2>
+<table>
+    <tr>
+        <th>UserID</th>
+        <th>UserName</th>
+        <th>Telephone</th>
+        <th>NIC</th>
+        <th>Date of Birth</th>
+        <th>Address</th>
+        <th>Enable</th>
+        <th>Role</th>
+    </tr>
+
+    <tr th:each="ownerinfo : ${ulist}">
+        <td th:text="${ownerinfo.id}"></td>
+        <td th:text="${ownerinfo.name}"></td>
+        <td th:text="${ownerinfo.telephone}"></td>
+        <td th:text="${ownerinfo.nationalIdNo}"></td>
+        <td th:text="${ownerinfo.dateOfBirth}"></td>
+        <td th:text="${ownerinfo.address}"></td>
+        <td th:text="${ownerinfo.enabled}"></td>
+        <td th:text="${ownerinfo.role}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

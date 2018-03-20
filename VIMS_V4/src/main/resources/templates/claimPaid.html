@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Claim paid confirm</title>
+    <style type="text/css">
+        body{
+            background: gray url('images/pic1.jpg') no-repeat fixed;
+            background-size:cover
+        }
+        a:hover{
+            color: white;
+        }
+        a{
+            color: brown;
+        }
+
+
+    </style>
+</head>
+<body>
+<p>Claim amount has been paid and Accident is now Closed.</p>
+<p th:text="${accident.damageAmount}+' Claim paid to Accident: '+${accident.accidentId}"></p>
+<p>Now the Accident is closed </p>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<head>
+    <meta charset="UTF-8"/>
+    <title>find bills form</title>
+
+    <style type="text/css">
+        body{
+            background: gray url('images/pic1.jpg') no-repeat fixed;
+        }
+        a:hover{
+            color: white;
+        }
+        a{
+            color: brown;
+        }
+
+
+    </style>
+
+    <style>
+        input[type=text], select {
+            width: 40%;
+            padding: 12px 20px;
+            margin: 8px 0px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            position: relative;
+            /*left:350px;
+            top:250px;*/
+        }
+
+        input[type=submit] {
+            width: 40%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+           /* left:350px;
+            top:260px;*/
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        .center{
+            align:center;
+        }
+
+    </style>
+</head>
+<body>
+<div  align="center">
+<h2>Find Garage Inspection Records</h2>
+<form  action="#" th:action="@{/findBills}" th:object="${payment}" method="post">
+    <input type="text" class="form-control"  placeholder="Accident Id" th:field="*{AccidentId}"  /><br/>
+
+    <input type="submit" ></input>
+  <!--  <input type="reset" >Reset</input>  -->
+</form>
+</div>
+</body>
+</html>

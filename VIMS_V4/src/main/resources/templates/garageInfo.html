@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Garage Info</title>
+</head>
+<body>
+<h2 th:text="'Garage No :'+${garage.garageId}+' info'"></h2>
+<p th:text="${garage.garageOwner}"></p>
+<p th:text="${garage.telephone}"></p>
+<p th:text="${garage.registeredNo}"></p>
+<p th:text="${garage.address}"></p>
+</body>
+</html>

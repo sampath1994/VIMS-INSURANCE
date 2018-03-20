@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Results</title>
+
+    <style type="text/css">
+        body{
+            background: gray url('images/pic1.jpg') no-repeat fixed;
+        }
+        a:hover{
+            color: white;
+        }
+        a{
+            color: brown;
+        }
+
+
+    </style>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 5px solid gold;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Search Results</h1>
+<h2>Accident Details List</h2>
+<table>
+    <tr>
+        <th>AccidentNo</th>
+        <th>dateTime</th>
+        <th>DamageAmnt</th>
+        <th>Accident area</th>
+        <th>Description</th>
+        <th>paid</th>
+    </tr>
+    <tr width="50%" th:each="accident : ${acclist}">
+        <td ><a href="AccidentDetails.html" th:href="@{http://localhost:8080/load3(id=${accident.accidentId})}" th:text="${accident.accidentId} + Accident"> </a>  </td>
+        <td th:text="${accident.datetime}"></td>
+        <td th:text="${accident.damageAmount}"></td>
+        <td th:text="${accident.accidentArea}"></td>
+        <td th:text="${accident.description}"></td>
+        <td th:text="${accident.paid}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
